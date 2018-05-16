@@ -1,6 +1,16 @@
-# ebooks
+# EBooks
+## Intro
+This is a small website made with VueJs + Bootstrap 4.
+It's used to sharing free eBooks. It's like a small online shop, but you don't need to pay (unless you like).
+To get shareable download links, you need to
+- do nothing    :))
+- or pay money    :v  (wtf, it's free...)
+- or like my pages    (y)   (thank you so much!!)
 
-> A Vue.js project
+^_^ 
+
+You can try it in [here](http://ebooks.shiroad.com/)
+
 
 ## Build Setup
 
@@ -13,18 +23,6 @@ npm run dev
 
 # build for production with minification
 npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
