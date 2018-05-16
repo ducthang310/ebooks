@@ -14,8 +14,17 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "^4.1.1",
+    "moment": "^2.22.1",
+    "vee-validate": "^2.0.9",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-analytics": "^5.10.6",
+    "vue-axios": "^2.1.1",
+    "vue-localstorage": "^0.6.2",
+    "vue-momentjs": "^0.1.2",
+    "vue-router": "^3.0.1",
+    "vue-toasted": "^1.1.24"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -63,6 +72,7 @@
     "mocha": "^3.2.0",
     "nightwatch": "^0.9.12",
     "node-notifier": "^5.1.2",
+    "node-sass": "^4.9.0",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",
     "phantomjs-prebuilt": "^2.1.14",
@@ -71,6 +81,7 @@
     "postcss-loader": "^2.0.8",
     "postcss-url": "^7.2.1",
     "rimraf": "^2.6.0",
+    "sass-loader": "^7.0.1",
     "selenium-server": "^3.0.1",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
