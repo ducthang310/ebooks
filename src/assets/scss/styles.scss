@@ -1,6 +1,7 @@
 @import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 @import 'config/_variables';
 @import 'config/_typography';
+@import '_fonts';
 
 @import '_layout';
 @import '_header';
@@ -8,6 +9,8 @@
 @import '_general';
 
 @import '_form';
+@import '_search';
+@import '_books';
 
 .rq-controls {
   margin-top: 20px;

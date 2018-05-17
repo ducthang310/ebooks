@@ -11,6 +11,8 @@ const mainConfig = {
   baseUrl: '',
   isDevelopmentMode: true,
   useFakeData: false,
+  key: 'UFjSwjHQii',
+  eBooks: [{id: 1, name: 'Learning python'},{id: 2, name: 'Learning PHP'},{id: 3, name: 'Learning AWS'}]
 }
 
 export default function (Vue) {

@@ -5,6 +5,7 @@ import Intro from '@/components/Intro'
 import DetailEBook from '@/components/DetailEBook'
 import Cart from '@/components/Cart'
 import Checkout from '@/components/Checkout'
+import Search from '@/components/Search'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/checkout',
       name: 'checkout',
       component: Checkout
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: Search
     },
     {
       path: '/ebook/:id',
