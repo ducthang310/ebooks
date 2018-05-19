@@ -1,6 +1,26 @@
 <template>
   <div>
-    <search-form v-on:submit="search"></search-form>
+    <div class="row" v-if="showIntro">
+      <search-form class="col-md-6" pr-wrap-class="col-md-12" v-on:submit="search"></search-form>
+
+      <div class="col-md-6">
+        <div class="home-intro">
+          <p>Hello, this is my small online shop. Just for fun. You still can download without 'Add to cart', 'Checkout'.
+            Just need to click to download button and get shareable download links.</p>
+          <p>I would be happy If you can spend a little bit of time to test some feature of this website (add to cart, checkout, get shareable download link, love, sharing ...)</p>
+          <p>Have fun!! :)</p>
+        </div>
+        <p class="home-intro-notice">
+          This box only appears once in the first time you visit
+        </p>
+
+      </div>
+    </div>
+
+    <div v-if="!showIntro">
+      <search-form v-on:submit="search"></search-form>
+    </div>
+
 
     <div class="" v-if="!isLoading">
       <div class="row-header">
@@ -46,6 +66,7 @@
     },
     data() {
       return {
+        showIntro: false,
         popularEBooks: [],
         lastAddedEBooks: [],
 
@@ -78,6 +99,11 @@
         }, () => {
           this.isLoading = false;
         })
+
+      if (!this.$localStorage.get('saw_intro')) {
+        this.showIntro = true;
+        this.$localStorage.set('saw_intro', true)
+      }
     }
 
   }
