@@ -10,7 +10,7 @@
           <p>I would be happy If you can spend a little bit of time to test some feature of this website (add to cart, checkout, get shareable download link, love, sharing ...)</p>
           <p>Have fun!! :)</p>
         </div>
-        <p class="home-intro-notice">
+        <p class="notice-txt">
           This box only appears once in the first time you visit
         </p>
 
@@ -92,8 +92,8 @@
       })
         .then(res => {
           if (res.data.success) {
-            vm.popularEBooks = res.data.popularEBooks ? res.data.popularEBooks : vm.$mcf.eBooks;
-            vm.lastAddedEBooks = res.data.lastAddedEBooks ? res.data.lastAddedEBooks : vm.$mcf.eBooks;
+            vm.popularEBooks = res.data.eBooks ? res.data.eBooks : [];
+            vm.lastAddedEBooks = res.data.eBooks ? res.data.eBooks : [];
           }
           this.isLoading = false;
         }, () => {

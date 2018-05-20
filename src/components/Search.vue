@@ -49,13 +49,13 @@
         // Call api to search
         vm.isLoading = true;
         vm.$http.post(vm.$mcf.baseApiUrl, {
-          action: 'get_ebooks',
+          action: 'get_eBooks',
           key: vm.$mcf.key,
           keyword: vm.keyword
         })
           .then(res => {
             if (res.data.success) {
-              vm.eBooks = res.data.eBooks ? res.data.eBooks : vm.$mcf.eBooks;
+              vm.eBooks = res.data.eBooks ? res.data.eBooks : [];
 
             }
             this.isLoading = false;

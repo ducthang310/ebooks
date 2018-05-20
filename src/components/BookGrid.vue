@@ -3,7 +3,9 @@
     <div class="row book-grid">
       <div class="col-sm-6 col-md-4 col-lg-3 book-grid__item" v-for="eBook in eBooks">
         <div class="book-grid__item-wrap">
-          <div class="book-grid__img"></div>
+          <div class="book-grid__img">
+            <img v-if="eBook.eb_image && eBook.eb_image.url" :src="eBook.eb_image.url" alt="eBook.name" title="eBook.name"/>
+          </div>
           <div class="book-grid__name">
             <router-link :to="{name: 'ebook_detail', params: {id: eBook.id}}">{{eBook.name}}</router-link>
           </div>
@@ -45,7 +47,6 @@ export default {
 
   watch: {
     'prEBooks': function () {
-      console.log('xxx')
       this.eBooks = this.prEBooks
     }
   }

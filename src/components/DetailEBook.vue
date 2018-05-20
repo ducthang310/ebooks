@@ -14,25 +14,57 @@
 
       <div class="row">
         <div class="col-md-3">
-          Image
+          <img class="ed-image" v-if="eBook.eb_image && eBook.eb_image.url" :src="eBook.eb_image.url" alt="eBook.name" title="eBook.name"/>
         </div>
 
         <div class="col-md-6">
-          <div v-html="eBook.description"></div>
+          <div class="ed-description">
+            <h5>DESCRIPTION</h5>
+            <div v-html="eBook.eb_description"></div>
+          </div>
 
-          <div class="ed-btn">
-            <p></p>
-            <button type="button" class="btn btn-primary" @click="addToCart">Add to cart</button>
-            <button type="button" class="btn btn-line-primary" @click="downloadNow">download now</button>
+          <div class="ed-author">
+            <h5>ABOUT THE AUTHOR</h5>
+            <div v-html="eBook.eb_author"></div>
+          </div>
+
+          <div class="ed-btn row">
+            <div class="col-md-6">
+              <button type="button" class="btn btn-primary" @click="addToCart">Add to cart</button>
+            </div>
+            <div class="col-md-6">
+              <button type="button" class="btn btn-line-primary" @click="downloadNow">download now</button>
+            </div>
+          </div>
+
+          <div class="ed-btn row" v-if="eBook.eb_buy_online">
+            <div class="col-md-6">
+              <a :href="eBook.eb_buy_online" target="_blank" class="btn btn-primary btn-x">Buy online</a>
+            </div>
+            <div class="col-md-12">
+              <p class="notice-txt">I'm sorry, this book is not free</p>
+            </div>
           </div>
         </div>
 
         <div class="col-md-3">
-          <p>You can try 'Add to cart' feature</p>
-
-          <p>Buy me a coffee</p>
-
-          <p>Help me to like my pages</p>
+          <div class="left-box">
+            <p>
+              <a href="https://shiroad.com/contact">
+                <span class="icon icon-envelop"></span>Contact me
+              </a>
+            </p>
+            <p>
+              <a href="https://shiroad.com/contact">
+                <span class="icon icon-facebook2"></span>Buy me a coffee
+              </a>
+            </p>
+            <p>
+              <a href="https://shiroad.com/contact">
+                <span class="icon icon-mug"></span>Like my pages
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -61,7 +93,7 @@
 
         vm.isLoading = true
         vm.$http.post(vm.$mcf.baseApiUrl, {
-          action: 'get_ebook',
+          action: 'get_eBook',
           key: vm.$mcf.key,
           id: vm.$route.params.id
         })
@@ -69,18 +101,8 @@
             if (res.data.success) {
               vm.eBook = res.data.eBook;
             }
-            vm.eBook = {
-              name: "Learning Python",
-              description: "Master the essential skills needed to recognize and solve complex problems with machine learning and deep learning. Using real-world examples that leverage the popular Python machine learning ecosystem, this book is your perfect companion for learning the art and science of machine learning to become a successful practitioner. The concepts, techniques, tools, frameworks, and methodologies used in this book will teach you how to think, design, build, and execute machine learning systems and projects successfully.\n" +
-              "Practical Machine Learning with Python follows a structured and comprehensive three-tiered approach packed with hands-on examples and code."
-            }
             vm.isLoading = false;
           }, () => {
-            vm.eBook = {
-              name: "Learning Python",
-              description: "Master the essential skills needed to recognize and solve complex problems with machine learning and deep learning. Using real-world examples that leverage the popular Python machine learning ecosystem, this book is your perfect companion for learning the art and science of machine learning to become a successful practitioner. The concepts, techniques, tools, frameworks, and methodologies used in this book will teach you how to think, design, build, and execute machine learning systems and projects successfully.\n" +
-              "Practical Machine Learning with Python follows a structured and comprehensive three-tiered approach packed with hands-on examples and code."
-            }
             vm.isLoading = false;
           })
 
@@ -92,6 +114,10 @@
 
       downloadNow() {
         console.log('download')
+      },
+
+      buyOnline() {
+        console.log('buy online')
       }
     },
 
