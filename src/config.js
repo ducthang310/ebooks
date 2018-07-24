@@ -8,6 +8,7 @@
  */
 const mainConfig = {
   baseApiUrl: 'https://shiroad.com',
+  // baseApiUrl: 'http://shiroad.local',
   baseUrl: '',
   isDevelopmentMode: true,
   useFakeData: false,

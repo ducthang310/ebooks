@@ -18,9 +18,12 @@
           <li class="nav-item" :class="{'active': routeName === 'intro'}">
             <router-link class="nav-link" :to="{name: 'intro'}">Intro</router-link>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://shiroad.com" target="_blank">ShiRoad</a>
+          </li>
         </ul>
         <a></a>
-        <router-link class="btn my-2 my-sm-0 btn-line-tran" :to="{name: 'cart'}"><span class="ico icon-cart"></span><span>View cart</span></router-link>
+        <router-link class="btn my-2 my-sm-0 btn-line-tran" :class="{'active': numberItem}" :to="{name: 'cart'}"><span class="ico icon-cart"></span><span>View cart</span></router-link>
       </div>
     </nav>
 
@@ -37,6 +40,14 @@ export default {
   computed: {
     routeName() {
       return this.$route.name
+    },
+
+    cart() {
+      return this.$store.state.cart
+    },
+
+    numberItem() {
+      return this.$store.state.cart.items.length
     }
   }
 }
